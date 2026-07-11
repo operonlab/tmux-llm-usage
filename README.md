@@ -6,7 +6,7 @@
 
 *Works on macOS and Linux.* Needs [`jq`](https://jqlang.github.io/jq/) and a
 POSIX shell. Built and tested on macOS with tmux `next-3.8`; the plugin is plain
-`sh` + `jq`, so it runs anywhere tmux does. (Minimum tmux **2.2** — see
+`sh` + `jq`, so it runs anywhere tmux does. (Minimum tmux **1.8** — see
 [Requirements](#requirements).)
 
 This is one of a three-part "AI tmux" family. The other two show what your
@@ -34,11 +34,16 @@ you can see it working in about 30 seconds, then you swap in your real data.
 
 ## Requirements
 
-- **tmux 2.2 or newer.** The plugin only uses very old, very stable tmux
-  features: user options (`@…`), a status-line `#()` command, and
-  `display-message`. `@…` user options are confirmed present since tmux 2.2 in
-  the official CHANGES, which is why that is the stated floor. Tested on tmux
-  `next-3.8`.
+- **tmux 1.8 or newer.** The plugin only uses very old, very stable tmux
+  features: user options (`@…`), the `-g`/`-q`/`-v` flags on
+  `show-option`/`set-option`, a status-line `#()` command, and
+  `display-message`. Per the official
+  [CHANGES](https://github.com/tmux/tmux/blob/master/CHANGES), `@` user options
+  and the `-q` quiet flag both arrived in tmux **1.8** (26 Mar 2013); the `-v`
+  value-only flag is present in that same release (tmux 1.8's `show-options`
+  accepts `-gqv` — its arg spec is `gqst:vw`). That is the real floor. Tested on
+  tmux `next-3.8` — a recent build's generous defaults can hide a missing flag,
+  so the floor was checked against the 1.8 source, not this machine's tmux.
 - **`jq`** on your `PATH` (`brew install jq`, `apt-get install jq`). It is used
   to parse the provider's JSON. If `jq` is missing the plugin tells you once and
   shows nothing.

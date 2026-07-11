@@ -35,9 +35,13 @@ Initial release.
   Ubuntu shellcheck + functional-smoke CI workflow.
 
 ### Notes
-- Requires tmux **2.2+** (user options confirmed present in the official CHANGES
-  since 2.2) and `jq`. Built and tested on macOS with tmux `next-3.8`; the
-  mechanism is portable POSIX `sh` + `jq`.
+- Requires tmux **1.8+** and `jq`. Per the official CHANGES, `@` user options
+  and the `-q` quiet flag arrived in tmux 1.8 (26 Mar 2013); the `-v` value-only
+  flag on `show-options` is present in that same release (arg spec `gqst:vw`), so
+  1.8 is the real floor. Built and tested on macOS with tmux `next-3.8`; the
+  floor was verified against the 1.8 source, not this machine's tmux, since a
+  recent build's defaults can mask a missing flag. The mechanism is portable
+  POSIX `sh` + `jq`.
 - The plugin ships **no** data collectors on purpose — every usage source is
   different, so you bring your own provider. This is the family's
   differentiation core.

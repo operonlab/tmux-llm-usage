@@ -6,7 +6,7 @@
 
 可在 macOS 與 Linux 執行，需要 [`jq`](https://jqlang.github.io/jq/) 與 POSIX
 shell。開發與測試環境為 macOS + tmux `next-3.8`；因為整個插件只是 `sh` + `jq`，
-tmux 跑得動的地方它都能跑。最低需求 tmux **2.2**。
+tmux 跑得動的地方它都能跑。最低需求 tmux **1.8**。
 
 這是「AI tmux 三件套」之一。另外兩個顯示 agent 正在「做什麼」，這個顯示你的
 用量 / 額度 / 花費長什麼樣子。
@@ -28,9 +28,14 @@ tmux 跑得動的地方它都能跑。最低需求 tmux **2.2**。
 
 ## 需求
 
-- **tmux 2.2 以上。** 插件只用了非常老、非常穩定的 tmux 功能：使用者選項
-  （`@…`）、狀態列 `#()` 指令、`display-message`。官方 CHANGES 可確認 `@…`
-  使用者選項自 tmux 2.2 起存在，這就是最低版本的依據。實測於 tmux `next-3.8`。
+- **tmux 1.8 以上。** 插件只用了非常老、非常穩定的 tmux 功能：使用者選項
+  （`@…`）、`show-option`/`set-option` 的 `-g`/`-q`/`-v` 旗標、狀態列 `#()`
+  指令、`display-message`。依官方
+  [CHANGES](https://github.com/tmux/tmux/blob/master/CHANGES)，`@` 使用者選項與
+  `-q` 旗標都在 tmux **1.8**（2013-03-26）加入；`-v`（只印值）在同一版即存在
+  （1.8 的 `show-options` 接受 `-gqv`，arg spec 為 `gqst:vw`）。這才是真正的
+  最低版本。實測於 tmux `next-3.8` — 新版寬鬆的預設值會遮蔽缺少的旗標，所以
+  最低版本是對照 1.8 原始碼查證，而非本機 tmux。
 - **`jq`**（`brew install jq` / `apt-get install jq`），用來解析 provider 的
   JSON。沒有 jq 時插件會提示一次，並顯示空白。
 
