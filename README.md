@@ -109,9 +109,10 @@ Then reload: `tmux source-file ~/.tmux.conf`.
 
 ## Demo
 
-*Demo GIF coming soon.*
+![tmux-llm-usage demo](docs/demo.gif)
 
-For now, imagine your `status-right` gaining a segment like:
+The capsule above is the bundled `examples/static.sh` provider; your
+`status-right` gains a segment like:
 
 ```
 CC 5H 50% · CC 7D 80% · CX 5H 12%
