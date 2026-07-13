@@ -12,6 +12,10 @@ POSIX shell. Built and tested on macOS with tmux `next-3.8`; the plugin is plain
 This is one of a three-part "AI tmux" family. The other two show what your
 agents are *doing*; this one shows what your usage / quota / spend looks like.
 
+![tmux-llm-usage capsule in the tmux status bar showing CC 5H 50% · CC 7D 80% · CX 5H 12%](docs/screenshot.png)
+
+*The AI-usage capsule rendered live in your tmux status bar — here driven by the bundled `examples/static.sh` provider.*
+
 ## What is this?
 
 Everybody's usage numbers live somewhere different — a Claude Code 5-hour quota,

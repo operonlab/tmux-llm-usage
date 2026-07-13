@@ -11,6 +11,10 @@ tmux 跑得動的地方它都能跑。最低需求 tmux **1.8**。
 這是「AI tmux 三件套」之一。另外兩個顯示 agent 正在「做什麼」，這個顯示你的
 用量 / 額度 / 花費長什麼樣子。
 
+![tmux-llm-usage 用量膠囊在 tmux 狀態列顯示 CC 5H 50% · CC 7D 80% · CX 5H 12%](screenshot.png)
+
+*AI 用量膠囊即時渲染在你的 tmux 狀態列 — 此處由內建的 `examples/static.sh` provider 驅動。*
+
 ## 這是什麼？
 
 每個人的用量數字放在不同地方 — Claude Code 的 5 小時額度、自架 LiteLLM 的
