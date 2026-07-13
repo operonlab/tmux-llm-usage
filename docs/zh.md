@@ -63,7 +63,7 @@ tmux 跑得動的地方它都能跑。最低需求 tmux **1.8**。
    # provider：任何會印出用量 JSON 的指令。先用內建範例：
    set -g @llm-usage-provider "~/.tmux/plugins/tmux-llm-usage/examples/static.sh"
 
-   set -g @plugin 'joneshong/tmux-llm-usage'
+   set -g @plugin 'operonlab/tmux-llm-usage'
    run '~/.tmux/plugins/tpm/tpm'
    ```
 
@@ -80,7 +80,7 @@ tmux 跑得動的地方它都能跑。最低需求 tmux **1.8**。
 ### 不用 TPM（純 `run-shell`）
 
 ```sh
-git clone https://github.com/joneshong/tmux-llm-usage ~/.tmux/plugins/tmux-llm-usage
+git clone https://github.com/operonlab/tmux-llm-usage ~/.tmux/plugins/tmux-llm-usage
 ```
 
 ```tmux

@@ -75,7 +75,7 @@ capsule should sit in your status line, and give it a provider command.
    # The provider: ANY command that prints usage JSON. Start with the demo:
    set -g @llm-usage-provider "~/.tmux/plugins/tmux-llm-usage/examples/static.sh"
 
-   set -g @plugin 'joneshong/tmux-llm-usage'
+   set -g @plugin 'operonlab/tmux-llm-usage'
    run '~/.tmux/plugins/tpm/tpm'
    ```
 
@@ -96,7 +96,7 @@ capsule should sit in your status line, and give it a provider command.
 Clone the repo and source the entry point directly from `~/.tmux.conf`:
 
 ```sh
-git clone https://github.com/joneshong/tmux-llm-usage ~/.tmux/plugins/tmux-llm-usage
+git clone https://github.com/operonlab/tmux-llm-usage ~/.tmux/plugins/tmux-llm-usage
 ```
 
 ```tmux
