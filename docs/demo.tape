@@ -1,47 +1,44 @@
-# tmux-llm-usage demo — recorded with vhs (https://github.com/charmbracelet/vhs)
-#   cd tmux-llm-usage && vhs docs/demo.tape
-#
-# Runs in a throwaway, isolated tmux server (-L vhsdemo-llm-usage,
-# -f /dev/null) so it never touches your real tmux. It uses the bundled
-# examples/static.sh provider (a fixed contract-v1 payload) so the capsule
-# is deterministic and needs no real quota endpoint. Requires jq.
-
+# tmux-llm-usage demo — your LLM quota / spend as a capsule in a cockpit status
+# bar. Fully self-contained: docs/demo-setup.sh stages an anonymous shell and a
+# catppuccin-mocha ISOLATED tmux server (socket lu-demo), then loads the plugin
+# so the #{llm_usage} token renders from the bundled examples/static.sh provider
+# (a fixed contract-v1 payload — no real endpoint or API key). The theme owns
+# status-left AND status-right (the default status-right leaks the hostname); the
+# capsule sits at the tail, behind the clock. Requires jq.
+# Re-record from the repo root with:  vhs docs/demo.tape
 Output "docs/demo.gif"
+Require tmux
+
 Set Shell "bash"
-Set FontSize 15
-Set Width 1200
-Set Height 660
-Set Padding 12
-Set TypingSpeed 40ms
+Set FontFamily "MesloLGS Nerd Font Mono"
+Set FontSize 20
+Set Width 1600
+Set Height 480
+Set Padding 20
+Set TypingSpeed 35ms
 
 Hide
-Type `tmux -L vhsdemo-llm-usage -f /dev/null new-session -d -s demo 'bash --norc -i'`
+Type "bash docs/demo-setup.sh"
 Enter
-Type `tmux -L vhsdemo-llm-usage attach -t demo`
-Enter
-Sleep 800ms
-Type `PS1='❯ '; clear`
-Enter
-Type `tmux -L vhsdemo-llm-usage set -g status-interval 2 \; set -g status-right-length 200`
-Enter
-Type `tmux -L vhsdemo-llm-usage set -g @llm-usage-interval 2`
-Enter
-Type `tmux -L vhsdemo-llm-usage set -g @llm-usage-provider "$PWD/examples/static.sh"`
-Enter
-Type `tmux -L vhsdemo-llm-usage set -g status-right ' usage #{llm_usage} '`
-Enter
-Type `./llm-usage.tmux`
-Enter
-Type `./scripts/usage.sh __sync__`
-Enter
-Type "clear"
+Sleep 3s
+Type "clear; tmux -L lu-demo attach -t demo"
 Enter
 Sleep 2s
 Show
-Type "# tmux-llm-usage: your quota / spend in the status bar (bring your own data)"
+
+# the cockpit: clock capsule, then the LLM usage capsule (CC 5H / CC 7D / CX 5H)
+Sleep 3s
+Type "# tmux-llm-usage: your quota / spend in the status bar — bring your own provider"
 Enter
-Sleep 4.5s
+Sleep 3s
+Type "# the provider is any command that prints usage JSON (here: examples/static.sh)"
+Enter
+Sleep 4s
+
 Hide
-Type `tmux -L vhsdemo-llm-usage kill-server`
+Ctrl+B
+Type "d"
+Sleep 400ms
+Type "tmux -L lu-demo kill-server"
 Enter
 Sleep 500ms
