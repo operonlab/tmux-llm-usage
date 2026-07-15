@@ -162,6 +162,30 @@ provider 指令看它印什麼。它必須在 **stdout** 印出合法 JSON（log
 不會。這裡的 `#()` 只讀一個快取檔並立刻回傳；真正的 provider 在完全脫離的背景
 程序裡跑。就算 provider 卡死也不會卡住狀態列。
 
+<!-- family-section -->
+---
+
+## [operonlab](https://github.com/operonlab) tmux 外掛家族
+
+一組小而專注的外掛，能組合成同一個駕駛艙。上面是原生 tmux **之前**，下面是整個家族 **之後**：
+
+![原生 tmux 對比 operonlab tmux 駕駛艙](family-before-after.gif)
+
+想用哪個就裝哪個：
+
+| 外掛 | 加了什麼 |
+|------|----------|
+| [tmux-workdesk](https://github.com/operonlab/tmux-workdesk) | 一鍵 IDE ＋ tile/main 窗格佈局 |
+| [tmux-floatpane](https://github.com/operonlab/tmux-floatpane) | 彈出式浮動暫存終端機 |
+| [tmux-context-menu](https://github.com/operonlab/tmux-context-menu) | 右鍵／prefix 窗格動作選單 |
+| [tmux-autosize](https://github.com/operonlab/tmux-autosize) | 背景視窗自動貼合用戶端尺寸 |
+| [tmux-passthrough](https://github.com/operonlab/tmux-passthrough) | 把按鍵直接穿透給內層程式 |
+| [tmux-sysmon](https://github.com/operonlab/tmux-sysmon) | 即時 CPU／MEM／DISK／NET 膠囊 |
+| **tmux-llm-usage　—— 你在這** | LLM 配額／花費狀態膠囊 |
+| [tmux-agent-status](https://github.com/operonlab/tmux-agent-status) | AI 窗格 busy／blocked／idle 膠囊 |
+| [tmux-pillbar](https://github.com/operonlab/tmux-pillbar) | 打造第二列自訂 pill 狀態列 |
+| [tmux-agent-resume](https://github.com/operonlab/tmux-agent-resume) | 崩潰後把每個 AI CLI 還原到原 session |
+
 ## 授權
 
 MIT — 見 [LICENSE](../LICENSE)。
