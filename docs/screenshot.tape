@@ -18,7 +18,7 @@ Output "/tmp/vhs-llm-usage-hero.gif"
 Set Shell "bash"
 Set FontFamily "MesloLGS Nerd Font Mono"
 Set FontSize 20
-Set Width 2392
+Set Width 2496
 Set Height 400
 Set Padding 20
 Set TypingSpeed 12ms
