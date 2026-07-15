@@ -19,9 +19,9 @@ Set Shell "bash"
 Set FontFamily "MesloLGS Nerd Font Mono"
 Set FontSize 20
 Set Width 2392
-Set Height 806
+Set Height 400
 Set Padding 20
-Set TypingSpeed 1ms
+Set TypingSpeed 12ms
 
 Hide
 Type "bash docs/demo-setup.sh"
@@ -31,7 +31,15 @@ Type "clear; tmux -L lu-demo attach -t demo"
 Enter
 Sleep 2500ms
 Show
-Sleep 400ms
+
+# narration above the two-row cockpit — the money shot is the LLM quota capsule
+# on the left of Row 2 (CC 5H / CC 7D / CX 5H), rendered from scripts/usage.sh.
+Type "# tmux-llm-usage: your LLM quota / spend as a capsule in the status bar"
+Enter
+Sleep 900ms
+Type "# the provider is any command that prints usage JSON (here: examples/static.sh)"
+Enter
+Sleep 1500ms
 Screenshot docs/screenshot.png
 Sleep 200ms
 
